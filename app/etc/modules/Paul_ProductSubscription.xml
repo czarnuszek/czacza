@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Paul_ProductSubscription>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Paul_ProductSubscription>
+    </modules>
+</config>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<config>
+    <menu>
+        <customer>
+            <children>
+                <paul_productsubscription translate="title" module="paul_productsubscription">
+                    <sort_order>10</sort_order>
+                    <title>Observed Products</title>
+                    <action>adminhtml/subscription/</action>
+                </paul_productsubscription>
+            </children>
+        </customer>
+    </menu>
+</config>

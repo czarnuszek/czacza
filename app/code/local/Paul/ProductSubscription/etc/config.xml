@@ -1,0 +1,77 @@
+<config>
+    <modules>
+        <Paul_ProductSubscription>
+            <version>0.1.0</version>
+        </Paul_ProductSubscription>
+    </modules>
+
+    <frontend>
+        <layout>
+            <updates>
+                <paul_productsubscription module="Paul_ProductSubscription">
+                    <file>paul_productsubscription.xml</file>
+                </paul_productsubscription>
+            </updates>
+        </layout>
+        <routers>
+            <productsubscription>
+                <use>standard</use>
+                <args>
+                    <module>Paul_ProductSubscription</module>
+                    <frontName>productsubscription</frontName>
+                </args>
+            </productsubscription>
+        </routers>
+    </frontend>
+    <global>
+        <blocks>
+            <productsubscription>
+                <class>Paul_ProductSubscription_Block</class>
+            </productsubscription>
+        </blocks>
+
+        <models>
+            <productsubscription>
+                <class>Paul_ProductSubscription_Model</class>
+                <resourceModel>productsubscription_resource</resourceModel>
+            </productsubscription>
+
+            <productsubscription_resource>
+                <class>Paul_ProductSubscription_Model_Resource</class>
+                <entities>
+                    <subscriber>
+                        <table>subscriber</table>
+                    </subscriber>
+                </entities>
+            </productsubscription_resource>
+        </models>
+
+        <resources>
+            <productsubscription_setup>
+                <setup>
+                    <module>Paul_ProductSubscription</module>
+                    <class>Paul_ProductSubscription_Model_Resource_Setup</class>
+                </setup>
+            </productsubscription_setup>
+        </resources>
+
+        <helpers>
+            <paul_productsubscription>
+                <class>Paul_ProductSubscription_Helper</class>
+            </paul_productsubscription>
+        </helpers>
+    </global>
+
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Paul_ProductSubscription before="Mage_Adminhtml">Paul_ProductSubscription_Adminhtml</Paul_ProductSubscription>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>
