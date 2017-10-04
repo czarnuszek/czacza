@@ -1,0 +1,54 @@
+<?php $_product = $this->getProduct(); ?>
+
+<?php if (($_product->isAvailable()) !== false):
+    return;
+endif; ?>
+
+<?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+    <?php if ($this->checkIfSubscriptionExists() !== 0):
+        echo "Przedmiot jest już zasubskrybowany";
+        return;
+    endif; ?>
+
+    <form action="<?php echo $this->getFormUserAction() ?>" method="post" id="newsletter-validate-detail">
+        <div class="block-content">
+            <div class="form-subscribe-header">
+                <label>Poinformuj mnie, gdy produkt będzie dostępny</label>
+            </div>
+            <div class="actions">
+                <button type="submit"
+                        class="button"><span><span>Zapisz mnie</span></span></button>
+            </div>
+        </div>
+    </form>
+
+<?php else: ?>
+
+    <?php if ($this->getRequest()->getParam('email') !== NULL):
+        $email = $this->getRequest()->getParam('email');
+        echo "Email {$email} subskrybuje już dany produkt";
+        return;
+    endif; ?>
+
+    <form action="<?php echo $this->getFormAnonymousAction() ?>" method="post"
+          id="newsletter-validate-detail">
+        <div class="block-content">
+            <div class="form-subscribe-header">
+                <label> Poinformuj mnie, gdy produkt będzie dostępny </label>
+            </div>
+            <div class="input-box">
+                <input type="email" name="email" id="productsub"
+                       placeholder="Podaj swój adres email"
+                       title="email"
+                       class="input-text required-entry validate-email"/>
+            </div>
+            <div class="actions">
+                <button type="submit"
+                        title="submit"
+                        class="button"><span><span> Zapisz mnie </span></span></button>
+            </div>
+        </div>
+    </form>
+
+<?php endif; ?>
+
