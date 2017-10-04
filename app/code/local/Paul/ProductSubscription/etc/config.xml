@@ -6,6 +6,16 @@
     </modules>
 
     <frontend>
+        <translate>
+            <modules>
+                <Paul_ProductSubscription>
+                    <files>
+                        <default>Paul_ProductSubscription.csv</default>
+                    </files>
+                </Paul_ProductSubscription>
+            </modules>
+        </translate>
+
         <layout>
             <updates>
                 <paul_productsubscription module="Paul_ProductSubscription">
@@ -46,6 +56,18 @@
             </productsubscription_resource>
         </models>
 
+        <adminhtml>
+            <translate>
+                <modules>
+                    <Paul_ProductSubscription>
+                        <files>
+                            <default>Paul_ProductSubscription.csv</default>
+                        </files>
+                    </Paul_ProductSubscription>
+                </modules>
+            </translate>
+        </adminhtml>
+
         <resources>
             <productsubscription_setup>
                 <setup>
@@ -62,13 +84,13 @@
         </helpers>
     </global>
 
-
     <admin>
         <routers>
             <adminhtml>
                 <args>
                     <modules>
-                        <Paul_ProductSubscription before="Mage_Adminhtml">Paul_ProductSubscription_Adminhtml</Paul_ProductSubscription>
+                        <Paul_ProductSubscription before="Mage_Adminhtml">Paul_ProductSubscription_Adminhtml
+                        </Paul_ProductSubscription>
                     </modules>
                 </args>
             </adminhtml>

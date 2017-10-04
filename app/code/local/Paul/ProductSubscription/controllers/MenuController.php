@@ -28,7 +28,7 @@ class Paul_ProductSubscription_MenuController extends Mage_Core_Controller_Front
     }
 
     /**
-     * Remove subscription
+     * Subscription removal from OBSERVE PRODUCTS dashboard view
      */
     public function removeAction()
     {

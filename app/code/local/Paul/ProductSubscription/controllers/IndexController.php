@@ -1,5 +1,4 @@
 <?php
-//w product view w rwd byla dopisana linijka getchilda
 
 /**
  * Class Paul_ProductSubscription_IndexController
@@ -56,19 +55,17 @@ class Paul_ProductSubscription_IndexController extends Mage_Core_Controller_Fron
             ->addFieldToFilter('email', $email)
             ->addFieldToFilter('product_id', $productId);
 
-        if ($collection->getSize() == 0) {
-
-            $this->saveAnonymousAction($data = array(
-                'email' => $email,
-                'product_id' => $productId
-            ));
-
-        } else {
-
+        if ($collection->getSize() !== 0) {
             $this->_redirect('catalog/product/view/id/', array('id' => $productId, 'email' => $email));
             return;
         }
+        $this->saveAnonymousAction($data = array(
+            'email' => $email,
+            'product_id' => $productId
+        ));
         $this->_redirect('catalog/product/view/id/', array('id' => $productId, 'email' => $email));
+        return;
+
     }
 
     /**

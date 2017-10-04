@@ -6,6 +6,10 @@
  * Date: 10/4/17
  * Time: 2:00 PM
  */
+
+/**
+ * Class Paul_ProductSubscription_Adminhtml_SubscriptionController
+ */
 class Paul_ProductSubscription_Adminhtml_SubscriptionController extends Mage_Adminhtml_Controller_Action
 {
     public function indexAction()

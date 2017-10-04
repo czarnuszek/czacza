@@ -1,14 +1,14 @@
 <?php $_product = $this->getProduct(); ?>
 
-<?php if (($_product->isAvailable()) !== false):
-    return;
-endif; ?>
+<?php if (($_product->isAvailable()) !== false): ?>
+    <?php return; ?>
+<?php endif; ?>
 
 <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
-    <?php if ($this->checkIfSubscriptionExists() !== 0):
-        echo "Przedmiot jest już zasubskrybowany";
-        return;
-    endif; ?>
+    <?php if ($this->checkIfSubscriptionExists() !== 0): ?>
+        <?php echo "Przedmiot jest już zasubskrybowany"; ?>
+        <?php return; ?>
+    <?php endif; ?>
 
     <form action="<?php echo $this->getFormUserAction() ?>" method="post" id="newsletter-validate-detail">
         <div class="block-content">
@@ -24,11 +24,11 @@ endif; ?>
 
 <?php else: ?>
 
-    <?php if ($this->getRequest()->getParam('email') !== NULL):
-        $email = $this->getRequest()->getParam('email');
-        echo "Email {$email} subskrybuje już dany produkt";
-        return;
-    endif; ?>
+    <?php if ($this->getRequest()->getParam('email') !== NULL): ?>
+        <?php $email = $this->getRequest()->getParam('email'); ?>
+        <?php echo "Email {$email} subskrybuje już dany produkt"; ?>
+        <?php return; ?>
+    <?php endif; ?>
 
     <form action="<?php echo $this->getFormAnonymousAction() ?>" method="post"
           id="newsletter-validate-detail">
