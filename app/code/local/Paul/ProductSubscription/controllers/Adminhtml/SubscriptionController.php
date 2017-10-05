@@ -48,9 +48,9 @@ class Paul_ProductSubscription_Adminhtml_SubscriptionController extends Mage_Adm
      */
     public function removeAction()
     {
-        $id = $this->getRequest()->getParam('subscribe_id');
+        $id = $this->getRequest()->getParam('id');
 
-        Mage::getModel('productsubscription/subscriber')->load($id, 'subscribe_id')->delete();
+        Mage::getModel('productsubscription/subscriber')->load($id, 'id')->delete();
         $this->_redirectReferer();
     }
 }

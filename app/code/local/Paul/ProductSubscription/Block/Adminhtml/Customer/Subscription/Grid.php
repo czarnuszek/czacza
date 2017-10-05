@@ -49,7 +49,7 @@ class Paul_ProductSubscription_Block_Adminhtml_Customer_Subscription_Grid extend
             'base' => '*/*/remove/');
 
         $this->addColumn('remove', array(
-            'getter' => 'getSubscribeId',
+            'getter' => 'getId',
             'header' => 'Action',
             'width' => 15,
             'sortable' => false,
@@ -59,7 +59,7 @@ class Paul_ProductSubscription_Block_Adminhtml_Customer_Subscription_Grid extend
                 array(
                     'url' => $link,
                     'caption' => 'Remove',
-                    'field' => 'subscribe_id'
+                    'field' => 'id'
                 ),
             )
         ));

@@ -34,7 +34,7 @@ class Paul_ProductSubscription_MenuController extends Mage_Core_Controller_Front
     {
         $id = $this->getRequest()->getParam('id');
 
-        Mage::getModel('productsubscription/subscriber')->load($id, 'subscribe_id')->delete();
+        Mage::getModel('productsubscription/subscriber')->load($id, 'id')->delete();
         $this->_redirect('productsubscription/menu/index');
 
     }
