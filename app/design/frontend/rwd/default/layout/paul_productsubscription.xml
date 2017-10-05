@@ -23,7 +23,7 @@
             </action>
         </reference>
         <reference name="my.account.wrapper">
-            <block type="productsubscription/subsmenu" name="paul_productsubscription_block" template="paul/productsubscription/subsmenu.phtml"/>
+            <block type="productsubscription/accountMenu" name="paul_productsubscription_block" template="paul/productsubscription/accountmenu.phtml"/>
         </reference>
     </productsubscription_menu_index>
 </layout>

@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Class Paul_ProductSubscription_Block_Subsmenu
+ * Class Paul_ProductSubscription_Block_AccountMenu
  */
-class Paul_ProductSubscription_Block_Subsmenu extends Mage_Catalog_Block_Product_View_Type_Simple
+class Paul_ProductSubscription_Block_AccountMenu extends Mage_Catalog_Block_Product_View_Type_Simple
 {
 
     /**

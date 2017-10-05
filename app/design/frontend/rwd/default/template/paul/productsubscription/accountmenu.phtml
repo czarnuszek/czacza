@@ -1,0 +1,35 @@
+<?php $collection = $this->loadDataByUserId(); ?>
+<div class="page-title">
+    <h1><?php echo $this->__('Observed Products') ?></h1>
+</div>
+<table class="data-table">
+    <thead>
+    <tr>
+        <th><?php echo $this->__('Product ID') ?></th>
+        <th><?php echo $this->__('Product Name') ?></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($collection as $item): ?>
+        <tr>
+            <td><?php echo $item->getProductId(); ?></td>
+            <td><?php echo $this->loadProductNameById((int)($item->getProductId())); ?></td>
+            <td>
+                <form action="<?php echo $this->removeButtonAction((int)$item->getSubscribeId()) ?>" method="post">
+                <div class="actions">
+                    <button type="submit"
+                            title="submit"
+                            class="button"><span><span><?php echo $this->__('Remove') ?></span></span></button>
+                </div>
+                </form>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+<script type="text/javascript">
+    //<![CDATA[
+    var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+    //]]>
+</script>

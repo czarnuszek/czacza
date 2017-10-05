@@ -6,18 +6,18 @@
 
 <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
     <?php if ($this->checkIfSubscriptionExists() !== 0): ?>
-        <?php echo "Przedmiot jest już zasubskrybowany"; ?>
+        <?php echo $this->__('Product is already subscribed') ?>
         <?php return; ?>
     <?php endif; ?>
 
     <form action="<?php echo $this->getFormUserAction() ?>" method="post" id="newsletter-validate-detail">
         <div class="block-content">
             <div class="form-subscribe-header">
-                <label>Poinformuj mnie, gdy produkt będzie dostępny</label>
+                <label><?php echo $this->__('Notify me when this products is back in stock') ?></label>
             </div>
             <div class="actions">
                 <button type="submit"
-                        class="button"><span><span>Zapisz mnie</span></span></button>
+                        class="button"><span><span><?php echo $this->__('Subscribe') ?></span></span></button>
             </div>
         </div>
     </form>
@@ -31,24 +31,26 @@
     <?php endif; ?>
 
     <form action="<?php echo $this->getFormAnonymousAction() ?>" method="post"
-          id="newsletter-validate-detail">
+          id="subscriber-email-validate">
         <div class="block-content">
             <div class="form-subscribe-header">
-                <label> Poinformuj mnie, gdy produkt będzie dostępny </label>
+                <label><?php echo $this->__('Notify me when this products is back in stock') ?></label>
             </div>
             <div class="input-box">
-                <input type="email" name="email" id="productsub"
-                       placeholder="Podaj swój adres email"
+                <input type="email" name="email" id="productsubscription"
+                       placeholder="<?php echo $this->__('Your email address') ?>"
                        title="email"
                        class="input-text required-entry validate-email"/>
             </div>
             <div class="actions">
                 <button type="submit"
                         title="submit"
-                        class="button"><span><span> Zapisz mnie </span></span></button>
+                        class="button"><span><span><?php echo $this->__('Subscribe') ?></span></span></button>
             </div>
         </div>
     </form>
 
 <?php endif; ?>
-
+<script type="text/javascript">
+    var newsletterSubscriberFormDetail = new VarienForm('subscriber-email-validate');
+</script>

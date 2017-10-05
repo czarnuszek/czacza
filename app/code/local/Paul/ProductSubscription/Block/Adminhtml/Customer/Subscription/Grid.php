@@ -27,7 +27,6 @@ class Paul_ProductSubscription_Block_Adminhtml_Customer_Subscription_Grid extend
     {
         $helper = Mage::helper('paul_productsubscription');
 
-
         $this->addColumn('product_id', array(
             'header' => $helper->__('Product ID'),
             'index' => 'product_id',
@@ -37,7 +36,7 @@ class Paul_ProductSubscription_Block_Adminhtml_Customer_Subscription_Grid extend
         $this->addColumn('user_id', array(
             'header' => $helper->__('User ID'),
             'index' => 'user_id',
-           'filter_index' => 'user_id'
+            'filter_index' => 'user_id'
         ));
 
         $this->addColumn('email', array(
@@ -46,6 +45,24 @@ class Paul_ProductSubscription_Block_Adminhtml_Customer_Subscription_Grid extend
             'filter_index' => 'email'
         ));
 
+        $link = array(
+            'base' => '*/*/remove/');
+
+        $this->addColumn('remove', array(
+            'getter' => 'getSubscribeId',
+            'header' => 'Action',
+            'width' => 15,
+            'sortable' => false,
+            'filter' => false,
+            'type' => 'action',
+            'actions' => array(
+                array(
+                    'url' => $link,
+                    'caption' => 'Remove',
+                    'field' => 'subscribe_id'
+                ),
+            )
+        ));
 
         $this->addExportType('*/*/exportPaulCsv', $helper->__('CSV'));
         $this->addExportType('*/*/exportPaulExcel', $helper->__('Excel XML'));

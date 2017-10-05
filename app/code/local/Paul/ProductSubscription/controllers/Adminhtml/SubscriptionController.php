@@ -29,17 +29,28 @@ class Paul_ProductSubscription_Adminhtml_SubscriptionController extends Mage_Adm
         );
     }
 
-    public function exportInchooCsvAction()
+    public function exportPaulCsvAction()
     {
         $fileName = 'paul_productsubscription.csv';
         $grid = $this->getLayout()->createBlock('productsubscription/adminhtml_customer_subscription_grid');
         $this->_prepareDownloadResponse($fileName, $grid->getCsvFile());
     }
 
-    public function exportInchooExcelAction()
+    public function exportPaulExcelAction()
     {
         $fileName = 'paul_productsubscription.xml';
         $grid = $this->getLayout()->createBlock('productsubscription/adminhtml_customer_subscription_grid');
         $this->_prepareDownloadResponse($fileName, $grid->getExcelFile($fileName));
+    }
+
+    /**
+     * Remove subscription from Customers admin panel
+     */
+    public function removeAction()
+    {
+        $id = $this->getRequest()->getParam('subscribe_id');
+
+        Mage::getModel('productsubscription/subscriber')->load($id, 'subscribe_id')->delete();
+        $this->_redirectReferer();
     }
 }
